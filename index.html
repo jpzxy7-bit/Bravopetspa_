@@ -1,0 +1,1442 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>Painel — Bravo Pet Spa</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg:#F7F2FD;
+  --card:#FFFFFF;
+  --ink:#2C1450;
+  --mute:#6E5A8C;
+  --pur:#7B4BB5;
+  --pur-h:#6A3DA3;
+  --tint:#EFE4FA;
+  --line:#E3D6F3;
+  --on:#FFFFFF;
+}
+
+@media(prefers-color-scheme:dark) {
+  :root:not([data-theme="light"]) {
+    --bg:#150C23;
+    --card:#20132F;
+    --ink:#F7F1FD;
+    --mute:#BBA8D3;
+    --pur:#A877E0;
+    --pur-h:#B98BEA;
+    --tint:#25163A;
+    --line:#3A2852;
+    --on:#1A0F27;
+  }
+}
+
+:root[data-theme="dark"] {
+  --bg:#150C23;
+  --card:#20132F;
+  --ink:#F7F1FD;
+  --mute:#BBA8D3;
+  --pur:#A877E0;
+  --pur-h:#B98BEA;
+  --tint:#25163A;
+  --line:#3A2852;
+  --on:#1A0F27;
+}
+
+* {
+  box-sizing:border-box;
+}
+
+body {
+  margin:0;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+  background:var(--bg);
+  color:var(--ink);
+  font-family:'Inter',system-ui,sans-serif;
+  line-height:1.5;
+  overflow-x:hidden;
+}
+
+.sd {
+  font-family:'DM Serif Display',Georgia,serif;
+  font-weight:400;
+}
+
+.wrap {
+  max-width:720px;
+  margin:0 auto;
+  padding:18px 16px 90px;
+}
+
+.top {
+  display:flex;
+  align-items:center;
+  gap:14px;
+  padding:6px 0 18px;
+}
+
+.top h1 {
+  margin:0;
+  font-size:30px;
+  line-height:1;
+}
+
+.top p {
+  margin:3px 0 0;
+  color:var(--mute);
+  font-size:14px;
+}
+
+.sumbar {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;
+  margin-bottom:18px;
+}
+
+.sb {
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:12px 14px;
+}
+
+.sb b {
+  display:block;
+  font:400 28px/1 'DM Serif Display',Georgia,serif;
+  color:var(--pur);
+}
+
+.sb small {
+  color:var(--mute);
+  font-size:12.5px;
+}
+
+.card {
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:24px;
+  padding:20px;
+  margin-bottom:18px;
+}
+
+.card h2 {
+  margin:0 0 14px;
+  font:400 24px/1.1 'DM Serif Display',Georgia,serif;
+}
+
+.lab {
+  display:block;
+  font-size:13px;
+  font-weight:600;
+  margin:0 0 6px;
+}
+
+.fi {
+  width:100%;
+  border:1.5px solid var(--line);
+  background:var(--bg);
+  color:var(--ink);
+  border-radius:12px;
+  padding:12px 14px;
+  font:400 15px 'Inter',sans-serif;
+}
+
+.fi:focus {
+  outline:none;
+  border-color:var(--pur);
+}
+
+textarea.fi {
+  resize:vertical;
+  min-height:90px;
+}
+
+.g2 {
+  display:grid;
+  grid-template-columns:1fr;
+  gap:12px;
+  margin-top:12px;
+}
+
+@media(min-width:560px) {
+  .g2 {
+    grid-template-columns:1fr 1fr;
+  }
+}
+
+.btn {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  border:0;
+  border-radius:999px;
+  padding:12px 20px;
+  background:var(--pur);
+  color:var(--on);
+  font:600 14.5px 'Inter',sans-serif;
+  cursor:pointer;
+  transition:background .25s,transform .25s;
+}
+
+.btn:hover {
+  background:var(--pur-h);
+  transform:translateY(-2px);
+}
+
+.btn.o {
+  background:transparent;
+  color:var(--ink);
+  border:1.5px solid var(--line);
+}
+
+.btn.o:hover {
+  border-color:var(--pur);
+  background:transparent;
+}
+
+.btn.sm {
+  padding:9px 14px;
+  font-size:13px;
+}
+
+.btn.w {
+  width:100%;
+}
+
+.btn.reds {
+  background:#B3261E;
+  color:#fff;
+}
+
+.btn.reds:hover {
+  background:#9a1f19;
+}
+
+.btn.red {
+  background:transparent;
+  color:#B3261E;
+  border:1.5px solid color-mix(in srgb,#B3261E 35%,transparent);
+}
+
+.row {
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:14px;
+}
+
+details summary {
+  cursor:pointer;
+  font-weight:600;
+  color:var(--pur);
+  padding:4px 0;
+  list-style:none;
+}
+
+details summary::-webkit-details-marker {
+  display:none;
+}
+
+details[open] summary {
+  margin-bottom:10px;
+}
+
+.hint {
+  color:var(--mute);
+  font-size:13.5px;
+  margin:8px 0 0;
+}
+
+.tabs {
+  display:flex;
+  gap:8px;
+  margin-bottom:14px;
+  overflow-x:auto;
+}
+
+.tab {
+  border:1.5px solid var(--line);
+  background:transparent;
+  color:var(--ink);
+  border-radius:999px;
+  padding:9px 16px;
+  font:500 14px 'Inter',sans-serif;
+  cursor:pointer;
+  white-space:nowrap;
+}
+
+.tab.on {
+  background:var(--pur);
+  border-color:var(--pur);
+  color:var(--on);
+}
+
+.item {
+  border:1px solid var(--line);
+  border-radius:20px;
+  padding:16px;
+  margin-bottom:12px;
+  background:var(--bg);
+  animation:in .5s cubic-bezier(.22,1,.36,1) both;
+}
+
+@keyframes in {
+  from {
+    opacity:0;
+    transform:translateY(12px);
+  }
+}
+
+.ih {
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  align-items:flex-start;
+}
+
+.ih b {
+  font:400 24px/1.1 'DM Serif Display',Georgia,serif;
+}
+
+.when {
+  font-size:13.5px;
+  color:var(--mute);
+  margin-top:2px;
+}
+
+.meta {
+  margin:10px 0 0;
+  font-size:14px;
+  color:var(--ink);
+}
+
+.meta span {
+  color:var(--mute);
+}
+
+.st {
+  border-radius:999px;
+  padding:5px 12px;
+  font-size:12.5px;
+  font-weight:600;
+  white-space:nowrap;
+  border:1.5px solid var(--line);
+  color:var(--mute);
+}
+
+.st.atendimento {
+  background:var(--tint);
+  color:var(--pur);
+  border-color:transparent;
+}
+
+.st.pronto {
+  background:var(--pur);
+  color:var(--on);
+  border-color:transparent;
+}
+
+.st.retirado {
+  opacity:.6;
+}
+
+.empty {
+  text-align:center;
+  color:var(--mute);
+  padding:26px 10px;
+}
+
+.schedule-edit {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+  margin-top:12px;
+  padding:12px;
+  border:1px solid var(--line);
+  border-radius:14px;
+  background:var(--card);
+}
+
+.schedule-edit label {
+  display:block;
+  font-size:12px;
+  font-weight:600;
+  margin-bottom:5px;
+  color:var(--mute);
+}
+
+.schedule-edit input {
+  width:100%;
+  min-width:0;
+  border:1px solid var(--line);
+  border-radius:9px;
+  padding:9px;
+  background:var(--bg);
+  color:var(--ink);
+  font:14px Inter,sans-serif;
+}
+
+.confirm {
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:10px;
+  width:100%;
+  padding:12px 14px;
+  border:1.5px solid color-mix(in srgb,#B3261E 45%,transparent);
+  border-radius:14px;
+  background:color-mix(in srgb,#B3261E 8%,transparent);
+  font-size:14px;
+}
+
+.confirm span {
+  flex:1 1 180px;
+}
+
+#toast {
+  position:fixed;
+  left:50%;
+  bottom:max(20px,env(safe-area-inset-bottom));
+  translate:-50% 20px;
+  background:var(--ink);
+  color:var(--bg);
+  padding:12px 18px;
+  border-radius:999px;
+  font-size:14px;
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .3s,translate .3s;
+  z-index:20;
+  max-width:90vw;
+  text-align:center;
+}
+
+#toast.on {
+  opacity:1;
+  translate:-50% 0;
+}
+
+@media(prefers-reduced-motion:reduce) {
+  .item {
+    animation:none;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="wrap">
+
+  <div class="top">
+    <div style="width:52px;height:52px;border-radius:50%;display:grid;place-items:center;background:var(--tint);font-size:28px">🐾</div>
+    <div>
+      <h1 class="sd">Painel do salão</h1>
+      <p id="hoje">Bravo Pet Spa</p>
+    </div>
+  </div>
+
+  <div class="sumbar">
+    <div class="sb">
+      <b id="n1">0</b>
+      <small>Hoje</small>
+    </div>
+    <div class="sb">
+      <b id="n2">0</b>
+      <small>Em atendimento</small>
+    </div>
+    <div class="sb">
+      <b id="n3">0</b>
+      <small>Prontos p/ retirar</small>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Novo pet</h2>
+
+    <details>
+      <summary>Colar pedido que chegou no WhatsApp</summary>
+      <textarea class="fi" id="paste" placeholder="Cole aqui a mensagem do pedido de agendamento..."></textarea>
+      <div class="row">
+        <button class="btn sm" id="read">Ler pedido</button>
+      </div>
+      <p class="hint">Os campos abaixo são preenchidos sozinhos. Confira e toque em "Adicionar".</p>
+    </details>
+
+    <div class="g2">
+      <div>
+        <label class="lab" for="fp">Pet</label>
+        <input class="fi" id="fp" maxlength="40" placeholder="Nome do pet">
+      </div>
+
+      <div>
+        <label class="lab" for="fb">Raça / porte</label>
+        <input class="fi" id="fb" maxlength="40" placeholder="Opcional">
+      </div>
+
+      <div>
+        <label class="lab" for="ft">Tutor(a)</label>
+        <input class="fi" id="ft" maxlength="60" placeholder="Nome do tutor" list="clientes" autocomplete="off">
+        <datalist id="clientes"></datalist>
+      </div>
+
+      <div>
+        <label class="lab" for="fw">WhatsApp do tutor</label>
+        <input class="fi" id="fw" maxlength="20" inputmode="tel" placeholder="(16) 99999-9999">
+      </div>
+
+      <div>
+        <label class="lab" for="fs">Serviço</label>
+        <input class="fi" id="fs" maxlength="50" placeholder="Ex.: Banho e tosa">
+      </div>
+
+      <div>
+        <label class="lab" for="fd">Dia</label>
+        <input class="fi" id="fd" type="date">
+      </div>
+
+      <div>
+        <label class="lab" for="fh">Horário</label>
+        <input class="fi" id="fh" type="time">
+      </div>
+
+      <div>
+        <label class="lab" for="fo">Observações</label>
+        <input class="fi" id="fo" maxlength="200" placeholder="Opcional">
+      </div>
+    </div>
+
+    <div class="row">
+      <button class="btn" id="addsend">Pronto! Salvar e avisar tutor</button>
+      <button class="btn o" id="add">Só adicionar à agenda</button>
+      <button class="btn o" id="clr">Limpar</button>
+    </div>
+
+    <p class="hint">Ao tocar em "Pronto! Salvar e avisar", os dados ficam salvos e o WhatsApp abre com a mensagem pronta para enviar.</p>
+  </div>
+
+  <div class="card">
+    <h2>Agenda</h2>
+
+    <div class="tabs">
+      <button class="tab on" data-t="hoje">Hoje</button>
+      <button class="tab" data-t="prox">Próximos</button>
+      <button class="tab" data-t="hist">Histórico</button>
+    </div>
+
+    <div id="list"></div>
+  </div>
+
+  <div class="card">
+    <details>
+      <summary>Mensagem de "pet pronto"</summary>
+
+      <label class="lab" for="tpl">Texto enviado ao tutor</label>
+      <textarea class="fi" id="tpl"></textarea>
+
+      <p class="hint">Use <b>{tutor}</b>, <b>{pet}</b> e <b>{servico}</b>. Eles são substituídos automaticamente.</p>
+
+      <div class="row">
+        <button class="btn sm" id="stpl">Salvar mensagem</button>
+        <button class="btn o sm" id="rtpl">Voltar ao padrão</button>
+      </div>
+    </details>
+  </div>
+
+  <div class="card">
+    <details>
+      <summary>Backup dos dados</summary>
+
+      <p class="hint">Os dados ficam salvos neste navegador. Faça backups para evitar perder as informações.</p>
+
+      <div class="row">
+        <button class="btn sm" id="bk">Copiar backup</button>
+      </div>
+
+      <label class="lab" for="rs" style="margin-top:16px">Restaurar</label>
+      <textarea class="fi" id="rs" placeholder="Cole aqui um backup copiado antes"></textarea>
+
+      <div class="row">
+        <button class="btn o sm" id="rsb">Restaurar backup</button>
+      </div>
+
+      <label class="lab" style="margin-top:20px">Apagar dados</label>
+
+      <div class="row" style="margin-top:6px">
+        <button class="btn o sm red" id="wipeh">Apagar histórico (retirados)</button>
+        <button class="btn o sm red" id="wipe">Apagar todos os dados</button>
+      </div>
+    </details>
+  </div>
+
+</div>
+
+<div id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function(){
+
+"use strict";
+
+var KEY = "bravo_painel_v1";
+var $ = function(id) {
+  return document.getElementById(id);
+};
+
+var TPL0 = "Oi, {tutor}! Passando para avisar que {pet} já está prontinho(a) e cheirosinho(a). Pode vir buscar! Bravo Pet Spa.";
+
+var D = {
+  items: [],
+  tpl: TPL0
+};
+
+var tab = "hoje";
+var editingSchedule = null;
+var pend = null;
+var pendT;
+var toastT;
+
+try {
+  var saved = localStorage.getItem(KEY);
+
+  if (saved) {
+    var parsed = JSON.parse(saved);
+
+    if (parsed && Array.isArray(parsed.items)) {
+      D = {
+        items: parsed.items,
+        tpl: typeof parsed.tpl === "string" && parsed.tpl
+          ? parsed.tpl
+          : TPL0
+      };
+    }
+  }
+} catch(e) {
+  console.error("Não foi possível carregar os dados.", e);
+}
+
+function save() {
+  try {
+    localStorage.setItem(KEY, JSON.stringify(D));
+  } catch(e) {
+    toast("Não consegui salvar neste navegador.");
+  }
+}
+
+function toast(message) {
+  var element = $("toast");
+  element.textContent = message;
+  element.classList.add("on");
+
+  clearTimeout(toastT);
+
+  toastT = setTimeout(function() {
+    element.classList.remove("on");
+  }, 2800);
+}
+
+function mk(tag, cls, txt) {
+  var element = document.createElement(tag);
+
+  if (cls) element.className = cls;
+  if (txt != null) element.textContent = txt;
+
+  return element;
+}
+
+function iso(date) {
+  return date.getFullYear() + "-" +
+    String(date.getMonth() + 1).padStart(2, "0") + "-" +
+    String(date.getDate()).padStart(2, "0");
+}
+
+function today() {
+  return iso(new Date());
+}
+
+function fd(value) {
+  if (!value) return "sem data";
+
+  var parts = value.split("-");
+  var date = new Date(+parts[0], +parts[1] - 1, +parts[2]);
+
+  return date.toLocaleDateString("pt-BR", {
+    weekday: "short",
+    day: "2-digit",
+    month: "2-digit"
+  }).replace(".", "");
+}
+
+function waNum(phone) {
+  var digits = String(phone || "").replace(/\D/g, "");
+
+  if (digits.length < 10) return "";
+
+  if (digits.indexOf("55") === 0 && digits.length >= 12) {
+    return digits;
+  }
+
+  return "55" + digits;
+}
+
+function openUrl(url) {
+  var link = document.createElement("a");
+
+  link.href = url;
+  link.target = "_blank";
+  link.rel = "noopener";
+
+  document.body.appendChild(link);
+  link.click();
+  link.remove();
+}
+
+function fill(template, item) {
+  return template
+    .replace(/\{tutor\}/g, (item.tutor || "").split(" ")[0])
+    .replace(/\{pet\}/g, item.pet || "seu pet")
+    .replace(/\{servico\}/g, item.svc || "");
+}
+
+/* Ler pedido colado do WhatsApp */
+
+function extract(text, regex) {
+  var match = text.match(regex);
+  return match ? match[1].trim() : "";
+}
+
+$("read").onclick = function() {
+  var text = $("paste").value;
+
+  if (!text.trim()) {
+    toast("Cole a mensagem primeiro.");
+    return;
+  }
+
+  var pet = extract(text, /Pet:\s*(.+)/i);
+  var breed = "";
+
+  var match = pet.match(/^(.*?)\s*\((.*)\)\s*$/);
+
+  if (match) {
+    pet = match[1].trim();
+    breed = match[2].trim();
+  }
+
+  var day = extract(text, /Dia:\s*(.+)/i)
+    .match(/(\d{2})\/(\d{2})\/(\d{4})/);
+
+  var time = extract(text, /Hor[aá]rio:\s*(\d{1,2}:\d{2})/i);
+
+  $("fp").value = pet;
+  $("fb").value = breed;
+  $("ft").value = extract(text, /Tutor\(a\):\s*(.+)/i);
+  $("fw").value = extract(text, /WhatsApp[^:\n]*:\s*(.+)/i);
+  $("fs").value = extract(text, /Servi[cç]o:\s*(.+)/i);
+  $("fo").value = extract(text, /Observa[cç][õo]es:\s*([^\n]+)/i);
+
+  if (day) {
+    $("fd").value = day[3] + "-" + day[2] + "-" + day[1];
+  }
+
+  if (time) {
+    $("fh").value = time.padStart(5, "0");
+  }
+
+  toast(pet || $("ft").value
+    ? "Pedido lido. Confira os dados."
+    : "Não achei os dados. Confira o texto.");
+};
+
+/* Limpar formulário */
+
+function clearForm() {
+  ["fp", "fb", "ft", "fw", "fs", "fo", "paste"].forEach(function(id) {
+    $(id).value = "";
+  });
+
+  $("fd").value = today();
+  $("fh").value = "";
+}
+
+$("clr").onclick = clearForm;
+
+/* Recolher informações do formulário */
+
+function collect() {
+  var item = {
+    id: Date.now() + Math.floor(Math.random() * 1000),
+    pet: $("fp").value.trim(),
+    breed: $("fb").value.trim(),
+    tutor: $("ft").value.trim(),
+    phone: $("fw").value.trim(),
+    svc: $("fs").value.trim(),
+    date: $("fd").value || today(),
+    time: $("fh").value,
+    obs: $("fo").value.trim(),
+    status: "agendado"
+  };
+
+  if (!item.pet) {
+    toast("Informe o nome do pet.");
+    return null;
+  }
+
+  if (!item.tutor) {
+    toast("Informe o nome do tutor.");
+    return null;
+  }
+
+  if (!waNum(item.phone)) {
+    toast("WhatsApp inválido. Use DDD e número.");
+    return null;
+  }
+
+  return item;
+}
+
+/* Adicionar à agenda */
+
+$("add").onclick = function() {
+  var item = collect();
+
+  if (!item) return;
+
+  D.items.push(item);
+
+  save();
+  clearForm();
+  render();
+
+  toast("Adicionado à agenda.");
+};
+
+/* Salvar e abrir o WhatsApp */
+
+$("addsend").onclick = function() {
+  var item = collect();
+
+  if (!item) return;
+
+  var number = waNum(item.phone);
+  var petName = item.pet.toLowerCase();
+
+  var existing = D.items.filter(function(savedItem) {
+    return waNum(savedItem.phone) === number &&
+      (savedItem.pet || "").toLowerCase() === petName &&
+      savedItem.status !== "retirado";
+  })[0];
+
+  if (existing) {
+    ["breed", "tutor", "phone", "svc", "obs"].forEach(function(field) {
+      if (item[field]) existing[field] = item[field];
+    });
+
+    existing.date = item.date;
+
+    if (item.time) {
+      existing.time = item.time;
+    }
+
+    item = existing;
+  } else {
+    D.items.push(item);
+  }
+
+  item.status = "pronto";
+  item.notified = Date.now();
+
+  save();
+
+  openUrl(
+    "https://wa.me/" + number +
+    "?text=" + encodeURIComponent(fill(D.tpl, item))
+  );
+
+  clearForm();
+  render();
+
+  toast("Dados salvos. Confira e envie a mensagem no WhatsApp.");
+};
+
+/* Preencher telefone de tutor já cadastrado */
+
+$("ft").addEventListener("input", function() {
+  var value = $("ft").value.trim().toLowerCase();
+
+  if (!value || $("fw").value.trim()) return;
+
+  var existing = D.items.filter(function(item) {
+    return (item.tutor || "").toLowerCase() === value && item.phone;
+  }).pop();
+
+  if (existing) {
+    $("fw").value = existing.phone;
+  }
+});
+
+/* Encontrar agendamento */
+
+function find(id) {
+  return D.items.filter(function(item) {
+    return item.id === id;
+  })[0];
+}
+
+/* Alterar status */
+
+function setStatus(id, status) {
+  var item = find(id);
+
+  if (!item) return;
+
+  item.status = status;
+
+  save();
+  render();
+}
+
+/* Avisar tutor pelo WhatsApp */
+
+function notify(id) {
+  var item = find(id);
+
+  if (!item) return;
+
+  var number = waNum(item.phone);
+
+  if (!number) {
+    toast("WhatsApp inválido para " + item.pet + ".");
+    return;
+  }
+
+  openUrl(
+    "https://wa.me/" + number +
+    "?text=" + encodeURIComponent(fill(D.tpl, item))
+  );
+
+  item.status = "pronto";
+  item.notified = Date.now();
+
+  save();
+  render();
+
+  toast("WhatsApp aberto. Confira e envie a mensagem.");
+}
+
+/* Excluir agendamento com confirmação */
+
+function askDelete(id) {
+  pend = id;
+
+  clearTimeout(pendT);
+
+  pendT = setTimeout(function() {
+    pend = null;
+    render();
+  }, 8000);
+
+  render();
+}
+
+function cancelDelete() {
+  pend = null;
+  clearTimeout(pendT);
+  render();
+}
+
+function deleteItem(id) {
+  var item = find(id);
+
+  if (!item) return;
+
+  D.items = D.items.filter(function(savedItem) {
+    return savedItem.id !== id;
+  });
+
+  pend = null;
+  clearTimeout(pendT);
+
+  save();
+  render();
+
+  toast((item.pet || "Item") + " excluído da agenda.");
+}
+
+function button(text, cls, callback) {
+  var element = mk("button", "btn sm " + (cls || ""), text);
+  element.onclick = callback;
+  return element;
+}
+
+/* Confirmação em dois toques para ações destrutivas */
+
+function twoStep(element, confirmationText, callback) {
+  var originalText = element.textContent;
+  var timer;
+
+  element.onclick = function() {
+    if (element.dataset.arm) {
+      clearTimeout(timer);
+      element.dataset.arm = "";
+      element.textContent = originalText;
+      callback();
+      return;
+    }
+
+    element.dataset.arm = "1";
+    element.textContent = confirmationText;
+
+    timer = setTimeout(function() {
+      element.dataset.arm = "";
+      element.textContent = originalText;
+    }, 6000);
+  };
+}
+
+/* Agenda: hoje, próximos e histórico */
+
+function inTab(item) {
+  var currentDate = today();
+
+  if (tab === "hist") {
+    return item.status === "retirado" || item.date < currentDate;
+  }
+
+  if (item.status === "retirado" || item.date < currentDate) {
+    return false;
+  }
+
+  return tab === "hoje"
+    ? item.date === currentDate
+    : item.date > currentDate;
+}
+
+/* Renderizar agenda */
+
+function render() {
+  var currentDate = today();
+
+  $("n1").textContent = D.items.filter(function(item) {
+    return item.date === currentDate && item.status !== "retirado";
+  }).length;
+
+  $("n2").textContent = D.items.filter(function(item) {
+    return item.status === "atendimento";
+  }).length;
+
+  $("n3").textContent = D.items.filter(function(item) {
+    return item.status === "pronto";
+  }).length;
+
+  document.querySelectorAll(".tab").forEach(function(element) {
+    element.classList.toggle("on", element.dataset.t === tab);
+  });
+
+  /* Atualizar lista de tutores */
+
+  var datalist = $("clientes");
+  datalist.textContent = "";
+
+  var seen = {};
+
+  D.items.forEach(function(item) {
+    var key = (item.tutor || "").toLowerCase();
+
+    if (!key || seen[key]) return;
+
+    seen[key] = true;
+
+    var option = document.createElement("option");
+    option.value = item.tutor;
+
+    datalist.appendChild(option);
+  });
+
+  var list = $("list");
+  list.textContent = "";
+
+  var items = D.items.filter(inTab).sort(function(a, b) {
+    return (a.date + (a.time || "99:99"))
+      .localeCompare(b.date + (b.time || "99:99"));
+  });
+
+  if (tab === "hist") {
+    items.reverse();
+  }
+
+  if (!items.length) {
+    var message = tab === "hoje"
+      ? "Nenhum pet na agenda de hoje."
+      : tab === "prox"
+        ? "Nenhum agendamento futuro."
+        : "O histórico está vazio.";
+
+    list.appendChild(mk("div", "empty", message));
+    return;
+  }
+
+  items.forEach(function(item) {
+    var card = mk("div", "item");
+    var header = mk("div", "ih");
+    var left = mk("div");
+
+    left.appendChild(mk("b", null, item.pet));
+
+    left.appendChild(
+      mk("div", "when",
+        fd(item.date) + (item.time ? " às " + item.time : "")
+      )
+    );
+
+    header.appendChild(left);
+
+    var labels = {
+      agendado: "Agendado",
+      atendimento: "Em atendimento",
+      pronto: "Pronto",
+      retirado: "Retirado"
+    };
+
+    header.appendChild(
+      mk("span", "st " + item.status, labels[item.status] || item.status)
+    );
+
+    card.appendChild(header);
+
+    var meta = mk("p", "meta");
+
+    [
+      ["Tutor", item.tutor],
+      ["WhatsApp", item.phone],
+      ["Serviço", item.svc],
+      ["Raça/porte", item.breed],
+      ["Observações", item.obs]
+    ].forEach(function(row) {
+      if (!row[1]) return;
+
+      var line = mk("div");
+
+      line.appendChild(mk("span", null, row[0] + ": "));
+      line.appendChild(document.createTextNode(row[1]));
+
+      meta.appendChild(line);
+    });
+
+    card.appendChild(meta);
+
+    if (item.status === "pronto" && item.notified) {
+      card.appendChild(
+        mk("p", "hint",
+          "WhatsApp aberto às " +
+          new Date(item.notified).toLocaleTimeString("pt-BR", {
+            hour: "2-digit",
+            minute: "2-digit"
+          }) + "."
+        )
+      );
+    }
+
+    /* EDITAR DATA E HORÁRIO DE AGENDAMENTO SALVO */
+
+    if (editingSchedule === item.id) {
+      var editor = mk("div", "schedule-edit");
+
+      var dateWrap = mk("div");
+      var dateLabel = mk("label", null, "Data");
+      var dateInput = mk("input");
+
+      dateInput.type = "date";
+      dateInput.value = item.date || today();
+      dateInput.id = "edit-date-" + item.id;
+      dateLabel.htmlFor = dateInput.id;
+
+      dateWrap.appendChild(dateLabel);
+      dateWrap.appendChild(dateInput);
+
+      var timeWrap = mk("div");
+      var timeLabel = mk("label", null, "Horário");
+      var timeInput = mk("input");
+
+      timeInput.type = "time";
+      timeInput.value = item.time || "";
+      timeInput.id = "edit-time-" + item.id;
+      timeLabel.htmlFor = timeInput.id;
+
+      timeWrap.appendChild(timeLabel);
+      timeWrap.appendChild(timeInput);
+
+      editor.appendChild(dateWrap);
+      editor.appendChild(timeWrap);
+
+      /* Salvar a alteração */
+
+      editor.appendChild(
+        button("Salvar alteração", "", function() {
+          if (!dateInput.value) {
+            toast("Escolha uma data.");
+            return;
+          }
+
+          item.date = dateInput.value;
+          item.time = timeInput.value;
+
+          editingSchedule = null;
+
+          save();
+          render();
+
+          toast("Data e horário atualizados.");
+        })
+      );
+
+      /* Cancelar a alteração */
+
+      editor.appendChild(
+        button("Cancelar", "o", function() {
+          editingSchedule = null;
+          render();
+        })
+      );
+
+      card.appendChild(editor);
+    }
+
+    var actions = mk("div", "row");
+
+    actions.appendChild(
+      button(
+        editingSchedule === item.id
+          ? "Fechar edição"
+          : "Editar data/horário",
+        "o",
+        function() {
+          editingSchedule =
+            editingSchedule === item.id ? null : item.id;
+
+          render();
+        }
+      )
+    );
+
+    if (item.status === "agendado") {
+      actions.appendChild(
+        button("Começar atendimento", "", function() {
+          setStatus(item.id, "atendimento");
+        })
+      );
+    }
+
+    if (item.status === "agendado" || item.status === "atendimento") {
+      actions.appendChild(
+        button("Pronto! Avisar tutor", "", function() {
+          notify(item.id);
+        })
+      );
+    }
+
+    if (item.status === "pronto") {
+      actions.appendChild(
+        button("Avisar de novo", "o", function() {
+          notify(item.id);
+        })
+      );
+
+      actions.appendChild(
+        button("Marcar como retirado", "", function() {
+          setStatus(item.id, "retirado");
+        })
+      );
+    }
+
+    if (item.status === "retirado") {
+      actions.appendChild(
+        button("Reabrir", "o", function() {
+          setStatus(item.id, "agendado");
+        })
+      );
+    }
+
+    if (pend === item.id) {
+      var confirmation = mk("div", "confirm");
+
+      confirmation.appendChild(
+        mk("span", null, "Excluir " + item.pet + "? Não dá para desfazer.")
+      );
+
+      confirmation.appendChild(
+        button("Sim, excluir", "reds", function() {
+          deleteItem(item.id);
+        })
+      );
+
+      confirmation.appendChild(
+        button("Cancelar", "o", cancelDelete)
+      );
+
+      actions.appendChild(confirmation);
+    } else {
+      actions.appendChild(
+        button("Excluir", "red", function() {
+          askDelete(item.id);
+        })
+      );
+    }
+
+    card.appendChild(actions);
+    list.appendChild(card);
+  });
+}
+
+/* Navegação entre as abas */
+
+document.querySelectorAll(".tab").forEach(function(element) {
+  element.onclick = function() {
+    tab = element.dataset.t;
+    render();
+  };
+});
+
+/* Apagar histórico */
+
+twoStep(
+  $("wipeh"),
+  "Toque de novo para confirmar",
+  function() {
+    var previousCount = D.items.length;
+
+    D.items = D.items.filter(function(item) {
+      return item.status !== "retirado";
+    });
+
+    save();
+    render();
+
+    toast(
+      (previousCount - D.items.length) +
+      " item(ns) do histórico apagado(s)."
+    );
+  }
+);
+
+/* Apagar todos os dados */
+
+twoStep(
+  $("wipe"),
+  "Toque de novo para apagar tudo",
+  function() {
+    D.items = [];
+    pend = null;
+
+    save();
+    render();
+
+    toast("Todos os dados foram apagados.");
+  }
+);
+
+/* Mensagem de pet pronto */
+
+$("tpl").value = D.tpl;
+
+$("stpl").onclick = function() {
+  var value = $("tpl").value.trim();
+
+  if (!value) {
+    toast("A mensagem não pode ficar vazia.");
+    return;
+  }
+
+  D.tpl = value;
+  save();
+
+  toast("Mensagem salva.");
+};
+
+$("rtpl").onclick = function() {
+  D.tpl = TPL0;
+  $("tpl").value = TPL0;
+
+  save();
+
+  toast("Mensagem padrão restaurada.");
+};
+
+/* Exportar backup */
+
+$("bk").onclick = function() {
+  var backup = JSON.stringify(D);
+
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(backup)
+      .then(function() {
+        toast("Backup copiado.");
+      })
+      .catch(function() {
+        $("rs").value = backup;
+        toast("Copie o texto da caixa abaixo.");
+      });
+  } else {
+    $("rs").value = backup;
+    toast("Copie o texto da caixa abaixo.");
+  }
+};
+
+/* Restaurar backup com confirmação */
+
+twoStep(
+  $("rsb"),
+  "Toque novamente para confirmar",
+  function() {
+    try {
+      var backup = JSON.parse($("rs").value);
+
+      if (!backup || !Array.isArray(backup.items)) {
+        throw new Error("Backup inválido");
+      }
+
+      D = {
+        items: backup.items,
+        tpl: backup.tpl || TPL0
+      };
+
+      $("tpl").value = D.tpl;
+
+      save();
+      render();
+
+      toast("Backup restaurado.");
+    } catch(e) {
+      toast("Backup inválido. Confira o texto.");
+    }
+  }
+);
+
+/* Inicialização */
+
+$("hoje").textContent =
+  "Bravo Pet Spa · " +
+  new Date().toLocaleDateString("pt-BR", {
+    weekday: "long",
+    day: "2-digit",
+    month: "long"
+  });
+
+$("fd").value = today();
+
+render();
+
+})();
+</script>
+
+</body>
+</html>
